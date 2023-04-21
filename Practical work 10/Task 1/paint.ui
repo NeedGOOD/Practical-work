@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>481</width>
+    <height>431</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Paint</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="canvas">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>40</y>
+      <width>481</width>
+      <height>371</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="fill_objects">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>0</y>
+      <width>70</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>filling</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>481</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="file">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="save"/>
+    <addaction name="clear"/>
+   </widget>
+   <widget class="QMenu" name="brush_size">
+    <property name="title">
+     <string>Brush size</string>
+    </property>
+    <addaction name="five_px"/>
+    <addaction name="twelve_px"/>
+    <addaction name="twenty_px"/>
+    <addaction name="twenty_five_px"/>
+   </widget>
+   <widget class="QMenu" name="brush_color">
+    <property name="title">
+     <string>Brush color</string>
+    </property>
+    <addaction name="black_color"/>
+    <addaction name="green_color"/>
+    <addaction name="yellow_color"/>
+    <addaction name="blue_color"/>
+   </widget>
+   <widget class="QMenu" name="menu_figure">
+    <property name="title">
+     <string>Figure</string>
+    </property>
+    <addaction name="square_figure"/>
+    <addaction name="cyrcle_figure"/>
+    <addaction name="line"/>
+    <addaction name="pen"/>
+   </widget>
+   <addaction name="file"/>
+   <addaction name="brush_size"/>
+   <addaction name="brush_color"/>
+   <addaction name="menu_figure"/>
+  </widget>
+  <action name="save">
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </action>
+  <action name="actionclear_screen">
+   <property name="text">
+    <string>clear screen</string>
+   </property>
+  </action>
+  <action name="five_px">
+   <property name="text">
+    <string>5px</string>
+   </property>
+  </action>
+  <action name="twelve_px">
+   <property name="text">
+    <string>12px</string>
+   </property>
+  </action>
+  <action name="twenty_px">
+   <property name="text">
+    <string>20px</string>
+   </property>
+  </action>
+  <action name="twenty_five_px">
+   <property name="text">
+    <string>25px</string>
+   </property>
+  </action>
+  <action name="black_color">
+   <property name="text">
+    <string>Black</string>
+   </property>
+  </action>
+  <action name="green_color">
+   <property name="text">
+    <string>Green</string>
+   </property>
+  </action>
+  <action name="yellow_color">
+   <property name="text">
+    <string>Yellow</string>
+   </property>
+  </action>
+  <action name="blue_color">
+   <property name="text">
+    <string>Blue</string>
+   </property>
+  </action>
+  <action name="actionChose">
+   <property name="text">
+    <string>Chose</string>
+   </property>
+  </action>
+  <action name="square_figure">
+   <property name="text">
+    <string>Square □</string>
+   </property>
+  </action>
+  <action name="cyrcle_figure">
+   <property name="text">
+    <string>Cyrcle o</string>
+   </property>
+  </action>
+  <action name="line">
+   <property name="text">
+    <string>Line /</string>
+   </property>
+  </action>
+  <action name="clear">
+   <property name="text">
+    <string>Clear</string>
+   </property>
+  </action>
+  <action name="pen">
+   <property name="text">
+    <string>Pen</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,4 @@
+Upper case = 2
+Lower case = 8
+
+Count = 1

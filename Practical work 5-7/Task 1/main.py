@@ -1,0 +1,873 @@
+from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
+from PyQt5.QtGui import QIcon
+import sys
+import math
+
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.setEnabled(True)
+        MainWindow.resize(420, 480)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
+        MainWindow.setSizePolicy(sizePolicy)
+        MainWindow.setMinimumSize(QtCore.QSize(420, 480))
+        MainWindow.setMaximumSize(QtCore.QSize(420, 480))
+        MainWindow.setTabletTracking(False)
+        MainWindow.setFocusPolicy(QtCore.Qt.NoFocus)
+        MainWindow.setContextMenuPolicy(QtCore.Qt.DefaultContextMenu)
+        MainWindow.setAcceptDrops(False)
+        MainWindow.setWindowOpacity(1.0)
+        MainWindow.setToolTip("")
+        MainWindow.setToolTipDuration(-1)
+        MainWindow.setLayoutDirection(QtCore.Qt.LeftToRight)
+        MainWindow.setAutoFillBackground(False)
+        MainWindow.setStyleSheet("QPushButton {\n"
+"    border-radius: 25px;\n"
+"    background-color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(200, 200, 200);\n"
+"}\n"
+"\n"
+"#btn_equal {\n"
+"    background-color: rgb(0, 180, 0);\n"
+"}\n"
+"\n"
+"#btn_equal:pressed {\n"
+"    background-color: rgb(0, 100, 0);\n"
+"}\n"
+"\n"
+"#btn_made {\n"
+"    border-radius: 10px;\n"
+"}")
+        MainWindow.setLocale(QtCore.QLocale(QtCore.QLocale.Ukrainian, QtCore.QLocale.Ukraine))
+        MainWindow.setToolButtonStyle(QtCore.Qt.ToolButtonIconOnly)
+        MainWindow.setDockNestingEnabled(False)
+        MainWindow.setDockOptions(QtWidgets.QMainWindow.AllowTabbedDocks|QtWidgets.QMainWindow.AnimatedDocks)
+        MainWindow.setUnifiedTitleAndToolBarOnMac(False)
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setLocale(QtCore.QLocale(QtCore.QLocale.Ukrainian, QtCore.QLocale.Ukraine))
+        self.centralwidget.setObjectName("centralwidget")
+        self.btn_7 = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_7.setGeometry(QtCore.QRect(70, 210, 50, 50))
+        self.btn_7.setMinimumSize(QtCore.QSize(50, 50))
+        self.btn_7.setMaximumSize(QtCore.QSize(50, 50))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setStrikeOut(False)
+        font.setKerning(True)
+        self.btn_7.setFont(font)
+        self.btn_7.setStyleSheet("color: rgb(0, 0, 0);")
+        self.btn_7.setObjectName("btn_7")
+        self.btn_9 = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_9.setGeometry(QtCore.QRect(190, 210, 50, 50))
+        self.btn_9.setMinimumSize(QtCore.QSize(50, 50))
+        self.btn_9.setMaximumSize(QtCore.QSize(50, 50))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setStrikeOut(False)
+        font.setKerning(True)
+        self.btn_9.setFont(font)
+        self.btn_9.setStyleSheet("color: rgb(0, 0, 0);")
+        self.btn_9.setObjectName("btn_9")
+        self.btn_mult = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_mult.setGeometry(QtCore.QRect(250, 210, 50, 50))
+        self.btn_mult.setMinimumSize(QtCore.QSize(50, 50))
+        self.btn_mult.setMaximumSize(QtCore.QSize(50, 50))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setStrikeOut(False)
+        font.setKerning(True)
+        self.btn_mult.setFont(font)
+        self.btn_mult.setStyleSheet("color: rgb(0, 180, 0);")
+        self.btn_mult.setObjectName("btn_mult")
+        self.btn_5 = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_5.setGeometry(QtCore.QRect(130, 270, 50, 50))
+        self.btn_5.setMinimumSize(QtCore.QSize(50, 50))
+        self.btn_5.setMaximumSize(QtCore.QSize(50, 50))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setStrikeOut(False)
+        font.setKerning(True)
+        self.btn_5.setFont(font)
+        self.btn_5.setStyleSheet("color: rgb(0, 0, 0);")
+        self.btn_5.setObjectName("btn_5")
+        self.btn_div = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_div.setGeometry(QtCore.QRect(250, 150, 50, 50))
+        self.btn_div.setMinimumSize(QtCore.QSize(50, 50))
+        self.btn_div.setMaximumSize(QtCore.QSize(50, 50))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setStrikeOut(False)
+        font.setKerning(True)
+        self.btn_div.setFont(font)
+        self.btn_div.setStyleSheet("color: rgb(0, 180, 0);")
+        self.btn_div.setObjectName("btn_div")
+        self.btn_4 = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_4.setGeometry(QtCore.QRect(70, 270, 50, 50))
+        self.btn_4.setMinimumSize(QtCore.QSize(50, 50))
+        self.btn_4.setMaximumSize(QtCore.QSize(50, 50))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setStrikeOut(False)
+        font.setKerning(True)
+        self.btn_4.setFont(font)
+        self.btn_4.setStyleSheet("color: rgb(0, 0, 0);")
+        self.btn_4.setObjectName("btn_4")
+        self.btn_8 = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_8.setGeometry(QtCore.QRect(130, 210, 50, 50))
+        self.btn_8.setMinimumSize(QtCore.QSize(50, 50))
+        self.btn_8.setMaximumSize(QtCore.QSize(50, 50))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setStrikeOut(False)
+        font.setKerning(True)
+        self.btn_8.setFont(font)
+        self.btn_8.setStyleSheet("color: rgb(0, 0, 0);")
+        self.btn_8.setObjectName("btn_8")
+        self.btn_plus = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_plus.setGeometry(QtCore.QRect(250, 330, 50, 50))
+        self.btn_plus.setMinimumSize(QtCore.QSize(50, 50))
+        self.btn_plus.setMaximumSize(QtCore.QSize(50, 50))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setStrikeOut(False)
+        font.setKerning(True)
+        self.btn_plus.setFont(font)
+        self.btn_plus.setStyleSheet("color: rgb(0, 180, 0);")
+        self.btn_plus.setObjectName("btn_plus")
+        self.btn_minus = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_minus.setGeometry(QtCore.QRect(250, 270, 50, 50))
+        self.btn_minus.setMinimumSize(QtCore.QSize(50, 50))
+        self.btn_minus.setMaximumSize(QtCore.QSize(50, 50))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setStrikeOut(False)
+        font.setKerning(True)
+        self.btn_minus.setFont(font)
+        self.btn_minus.setStyleSheet("color: rgb(0, 180, 0);")
+        self.btn_minus.setObjectName("btn_minus")
+        self.btn_3 = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_3.setGeometry(QtCore.QRect(190, 330, 50, 50))
+        self.btn_3.setMinimumSize(QtCore.QSize(50, 50))
+        self.btn_3.setMaximumSize(QtCore.QSize(50, 50))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setStrikeOut(False)
+        font.setKerning(True)
+        self.btn_3.setFont(font)
+        self.btn_3.setStyleSheet("color: rgb(0, 0, 0);")
+        self.btn_3.setObjectName("btn_3")
+        self.btn_equal = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_equal.setGeometry(QtCore.QRect(250, 390, 50, 50))
+        self.btn_equal.setMinimumSize(QtCore.QSize(50, 50))
+        self.btn_equal.setMaximumSize(QtCore.QSize(50, 50))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setStrikeOut(False)
+        font.setKerning(True)
+        self.btn_equal.setFont(font)
+        self.btn_equal.setStyleSheet("color: rgb(255, 255, 255);")
+        self.btn_equal.setObjectName("btn_equal")
+        self.btn_0 = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_0.setGeometry(QtCore.QRect(130, 390, 50, 50))
+        self.btn_0.setMinimumSize(QtCore.QSize(50, 50))
+        self.btn_0.setMaximumSize(QtCore.QSize(50, 50))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setStrikeOut(False)
+        font.setKerning(True)
+        self.btn_0.setFont(font)
+        self.btn_0.setStyleSheet("color: rgb(0, 0, 0);")
+        self.btn_0.setObjectName("btn_0")
+        self.field = QtWidgets.QLabel(self.centralwidget)
+        self.field.setGeometry(QtCore.QRect(0, 0, 420, 50))
+        self.field.setMaximumSize(QtCore.QSize(420, 50))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setWeight(50)
+        self.field.setFont(font)
+        self.field.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.field.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);")
+        self.field.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.field.setObjectName("field")
+        self.btn_closed_parenthesis = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_closed_parenthesis.setGeometry(QtCore.QRect(190, 150, 50, 50))
+        self.btn_closed_parenthesis.setMinimumSize(QtCore.QSize(50, 50))
+        self.btn_closed_parenthesis.setMaximumSize(QtCore.QSize(50, 50))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setWeight(50)
+        self.btn_closed_parenthesis.setFont(font)
+        self.btn_closed_parenthesis.setStyleSheet("color: rgb(0, 0, 0);")
+        self.btn_closed_parenthesis.setObjectName("btn_closed_parenthesis")
+        self.btn_1 = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_1.setGeometry(QtCore.QRect(70, 330, 50, 50))
+        self.btn_1.setMinimumSize(QtCore.QSize(50, 50))
+        self.btn_1.setMaximumSize(QtCore.QSize(50, 50))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setStrikeOut(False)
+        font.setKerning(True)
+        self.btn_1.setFont(font)
+        self.btn_1.setStyleSheet("color: rgb(0, 0, 0);")
+        self.btn_1.setObjectName("btn_1")
+        self.btn_open_parenthesis = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_open_parenthesis.setGeometry(QtCore.QRect(130, 150, 50, 50))
+        self.btn_open_parenthesis.setMinimumSize(QtCore.QSize(50, 50))
+        self.btn_open_parenthesis.setMaximumSize(QtCore.QSize(50, 50))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setWeight(50)
+        self.btn_open_parenthesis.setFont(font)
+        self.btn_open_parenthesis.setStyleSheet("color: rgb(0, 0, 0);")
+        self.btn_open_parenthesis.setObjectName("btn_open_parenthesis")
+        self.btn_last_delete = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_last_delete.setGeometry(QtCore.QRect(250, 90, 50, 50))
+        self.btn_last_delete.setMinimumSize(QtCore.QSize(50, 50))
+        self.btn_last_delete.setMaximumSize(QtCore.QSize(50, 50))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setWeight(50)
+        self.btn_last_delete.setFont(font)
+        self.btn_last_delete.setStyleSheet("color: rgb(0, 180, 0);")
+        self.btn_last_delete.setObjectName("btn_last_delete")
+        self.btn_pow = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_pow.setGeometry(QtCore.QRect(190, 90, 50, 50))
+        self.btn_pow.setMinimumSize(QtCore.QSize(50, 50))
+        self.btn_pow.setMaximumSize(QtCore.QSize(50, 50))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setWeight(50)
+        self.btn_pow.setFont(font)
+        self.btn_pow.setStyleSheet("color: rgb(0, 180, 0);")
+        self.btn_pow.setObjectName("btn_pow")
+        self.field_result = QtWidgets.QLabel(self.centralwidget)
+        self.field_result.setGeometry(QtCore.QRect(0, 50, 420, 30))
+        self.field_result.setMaximumSize(QtCore.QSize(420, 30))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setWeight(50)
+        self.field_result.setFont(font)
+        self.field_result.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"color: rgb(90, 90, 90);")
+        self.field_result.setText("")
+        self.field_result.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.field_result.setObjectName("field_result")
+        self.btn_full_delete = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_full_delete.setGeometry(QtCore.QRect(70, 150, 50, 50))
+        self.btn_full_delete.setMinimumSize(QtCore.QSize(50, 50))
+        self.btn_full_delete.setMaximumSize(QtCore.QSize(50, 50))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setWeight(50)
+        self.btn_full_delete.setFont(font)
+        self.btn_full_delete.setStyleSheet("color: rgb(225, 90, 0);")
+        self.btn_full_delete.setObjectName("btn_full_delete")
+        self.btn_6 = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_6.setGeometry(QtCore.QRect(190, 270, 50, 50))
+        self.btn_6.setMinimumSize(QtCore.QSize(50, 50))
+        self.btn_6.setMaximumSize(QtCore.QSize(50, 50))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setStrikeOut(False)
+        font.setKerning(True)
+        self.btn_6.setFont(font)
+        self.btn_6.setStyleSheet("color: rgb(0, 0, 0);")
+        self.btn_6.setObjectName("btn_6")
+        self.btn_2 = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_2.setGeometry(QtCore.QRect(130, 330, 50, 50))
+        self.btn_2.setMinimumSize(QtCore.QSize(50, 50))
+        self.btn_2.setMaximumSize(QtCore.QSize(50, 50))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setStrikeOut(False)
+        font.setKerning(True)
+        self.btn_2.setFont(font)
+        self.btn_2.setStyleSheet("color: rgb(0, 0, 0);")
+        self.btn_2.setObjectName("btn_2")
+        self.btn_sqtr = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_sqtr.setGeometry(QtCore.QRect(130, 90, 50, 50))
+        self.btn_sqtr.setMinimumSize(QtCore.QSize(50, 50))
+        self.btn_sqtr.setMaximumSize(QtCore.QSize(50, 50))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setWeight(50)
+        self.btn_sqtr.setFont(font)
+        self.btn_sqtr.setStyleSheet("color: rgb(0, 180, 0);")
+        self.btn_sqtr.setObjectName("btn_sqtr")
+        self.btn_dot = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_dot.setGeometry(QtCore.QRect(190, 390, 50, 50))
+        self.btn_dot.setMinimumSize(QtCore.QSize(50, 50))
+        self.btn_dot.setMaximumSize(QtCore.QSize(50, 50))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setWeight(50)
+        self.btn_dot.setFont(font)
+        self.btn_dot.setStyleSheet("color: rgb(0, 0, 0);")
+        self.btn_dot.setObjectName("btn_dot")
+        self.btn_factorial = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_factorial.setGeometry(QtCore.QRect(10, 150, 50, 50))
+        self.btn_factorial.setMinimumSize(QtCore.QSize(50, 50))
+        self.btn_factorial.setMaximumSize(QtCore.QSize(50, 50))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        self.btn_factorial.setFont(font)
+        self.btn_factorial.setStyleSheet("color: rgb(0, 180, 0);")
+        self.btn_factorial.setObjectName("btn_factorial")
+        self.btn_abs = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_abs.setGeometry(QtCore.QRect(10, 90, 50, 50))
+        self.btn_abs.setMinimumSize(QtCore.QSize(50, 50))
+        self.btn_abs.setMaximumSize(QtCore.QSize(50, 50))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        self.btn_abs.setFont(font)
+        self.btn_abs.setStyleSheet("color: rgb(0, 180, 0);")
+        self.btn_abs.setObjectName("btn_abs")
+        self.btn_logarithm = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_logarithm.setGeometry(QtCore.QRect(10, 210, 50, 50))
+        self.btn_logarithm.setMinimumSize(QtCore.QSize(50, 50))
+        self.btn_logarithm.setMaximumSize(QtCore.QSize(50, 50))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        self.btn_logarithm.setFont(font)
+        self.btn_logarithm.setStyleSheet("color: rgb(0, 180, 0);")
+        self.btn_logarithm.setObjectName("btn_logarithm")
+        self.btn_natural_logarithm = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_natural_logarithm.setGeometry(QtCore.QRect(10, 270, 50, 50))
+        self.btn_natural_logarithm.setMinimumSize(QtCore.QSize(50, 50))
+        self.btn_natural_logarithm.setMaximumSize(QtCore.QSize(50, 50))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        self.btn_natural_logarithm.setFont(font)
+        self.btn_natural_logarithm.setStyleSheet("color: rgb(0, 180, 0);")
+        self.btn_natural_logarithm.setObjectName("btn_natural_logarithm")
+        self.btn_pi = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_pi.setGeometry(QtCore.QRect(10, 330, 50, 50))
+        self.btn_pi.setMinimumSize(QtCore.QSize(50, 50))
+        self.btn_pi.setMaximumSize(QtCore.QSize(50, 50))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        self.btn_pi.setFont(font)
+        self.btn_pi.setStyleSheet("color: rgb(0, 180, 0);")
+        self.btn_pi.setObjectName("btn_pi")
+        self.btn_interest = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_interest.setGeometry(QtCore.QRect(10, 390, 50, 50))
+        self.btn_interest.setMinimumSize(QtCore.QSize(50, 50))
+        self.btn_interest.setMaximumSize(QtCore.QSize(50, 50))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        self.btn_interest.setFont(font)
+        self.btn_interest.setStyleSheet("color: rgb(0, 180, 0);")
+        self.btn_interest.setObjectName("btn_interest")
+        self.btn_math_formulas = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_math_formulas.setGeometry(QtCore.QRect(70, 90, 50, 50))
+        self.btn_math_formulas.setMinimumSize(QtCore.QSize(50, 50))
+        self.btn_math_formulas.setMaximumSize(QtCore.QSize(50, 50))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        self.btn_math_formulas.setFont(font)
+        self.btn_math_formulas.setStyleSheet("color: rgb(0, 180, 0);")
+        self.btn_math_formulas.setObjectName("btn_math_formulas")
+        self.btn_engineering = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_engineering.setGeometry(QtCore.QRect(70, 390, 50, 50))
+        self.btn_engineering.setMinimumSize(QtCore.QSize(50, 50))
+        self.btn_engineering.setMaximumSize(QtCore.QSize(50, 50))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        self.btn_engineering.setFont(font)
+        self.btn_engineering.setStyleSheet("color: rgb(0, 180, 0);")
+        self.btn_engineering.setObjectName("btn_engineering")
+        self.btn_made = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_made.setGeometry(QtCore.QRect(10, 450, 400, 20))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setWeight(50)
+        self.btn_made.setFont(font)
+        self.btn_made.setStyleSheet("color: rgb(0, 180, 0);")
+        self.btn_made.setObjectName("btn_made")
+        self.btn_formula1 = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_formula1.setGeometry(QtCore.QRect(310, 90, 100, 50))
+        self.btn_formula1.setMinimumSize(QtCore.QSize(100, 50))
+        self.btn_formula1.setMaximumSize(QtCore.QSize(100, 50))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        self.btn_formula1.setFont(font)
+        self.btn_formula1.setObjectName("btn_formula1")
+        self.btn_formula2 = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_formula2.setGeometry(QtCore.QRect(310, 150, 100, 50))
+        self.btn_formula2.setMinimumSize(QtCore.QSize(100, 50))
+        self.btn_formula2.setMaximumSize(QtCore.QSize(100, 50))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        self.btn_formula2.setFont(font)
+        self.btn_formula2.setObjectName("btn_formula2")
+        self.btn_formula3 = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_formula3.setGeometry(QtCore.QRect(310, 210, 100, 50))
+        self.btn_formula3.setMinimumSize(QtCore.QSize(100, 50))
+        self.btn_formula3.setMaximumSize(QtCore.QSize(100, 50))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        self.btn_formula3.setFont(font)
+        self.btn_formula3.setObjectName("btn_formula3")
+        self.btn_formula4 = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_formula4.setGeometry(QtCore.QRect(310, 270, 100, 50))
+        self.btn_formula4.setMinimumSize(QtCore.QSize(100, 50))
+        self.btn_formula4.setMaximumSize(QtCore.QSize(100, 50))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        self.btn_formula4.setFont(font)
+        self.btn_formula4.setObjectName("btn_formula4")
+        self.btn_formula5 = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_formula5.setGeometry(QtCore.QRect(310, 330, 100, 50))
+        self.btn_formula5.setMinimumSize(QtCore.QSize(100, 50))
+        self.btn_formula5.setMaximumSize(QtCore.QSize(100, 50))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        self.btn_formula5.setFont(font)
+        self.btn_formula5.setObjectName("btn_formula5")
+        self.btn_formula6 = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_formula6.setGeometry(QtCore.QRect(310, 390, 100, 50))
+        self.btn_formula6.setMinimumSize(QtCore.QSize(100, 50))
+        self.btn_formula6.setMaximumSize(QtCore.QSize(100, 50))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(14)
+        self.btn_formula6.setFont(font)
+        self.btn_formula6.setObjectName("btn_formula6")
+        MainWindow.setCentralWidget(self.centralwidget)
+
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+        self.add_functions(MainWindow)
+        self.is_equal = False
+        MainWindow.setWindowIcon(QIcon("calculator.ico"))
+
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "Калькулятор"))
+        self.btn_7.setText(_translate("MainWindow", "7"))
+        self.btn_9.setText(_translate("MainWindow", "9"))
+        self.btn_mult.setText(_translate("MainWindow", "*"))
+        self.btn_5.setText(_translate("MainWindow", "5"))
+        self.btn_div.setText(_translate("MainWindow", "/"))
+        self.btn_4.setText(_translate("MainWindow", "4"))
+        self.btn_8.setText(_translate("MainWindow", "8"))
+        self.btn_plus.setText(_translate("MainWindow", "+"))
+        self.btn_minus.setText(_translate("MainWindow", "-"))
+        self.btn_3.setText(_translate("MainWindow", "3"))
+        self.btn_equal.setText(_translate("MainWindow", "="))
+        self.btn_0.setText(_translate("MainWindow", "0"))
+        self.field.setText(_translate("MainWindow", "0"))
+        self.btn_closed_parenthesis.setText(_translate("MainWindow", ")"))
+        self.btn_1.setText(_translate("MainWindow", "1"))
+        self.btn_open_parenthesis.setText(_translate("MainWindow", "("))
+        self.btn_last_delete.setText(_translate("MainWindow", "🡠"))
+        self.btn_pow.setText(_translate("MainWindow", "xⁿ"))
+        self.btn_full_delete.setText(_translate("MainWindow", "C"))
+        self.btn_6.setText(_translate("MainWindow", "6"))
+        self.btn_2.setText(_translate("MainWindow", "2"))
+        self.btn_sqtr.setText(_translate("MainWindow", "√x"))
+        self.btn_dot.setText(_translate("MainWindow", "."))
+        self.btn_factorial.setText(_translate("MainWindow", "n!"))
+        self.btn_abs.setText(_translate("MainWindow", "|x|"))
+        self.btn_logarithm.setText(_translate("MainWindow", "log"))
+        self.btn_natural_logarithm.setText(_translate("MainWindow", "ln"))
+        self.btn_pi.setText(_translate("MainWindow", "𝝅"))
+        self.btn_interest.setText(_translate("MainWindow", "%"))
+        self.btn_math_formulas.setText(_translate("MainWindow", "math"))
+        self.btn_engineering.setText(_translate("MainWindow", "eng"))
+        self.btn_made.setText(_translate("MainWindow", "credit"))
+        self.btn_formula1.setText(_translate("MainWindow", "a²-b²"))
+        self.btn_formula2.setText(_translate("MainWindow", "(a+b)²"))
+        self.btn_formula3.setText(_translate("MainWindow", "(a-b)²"))
+        self.btn_formula4.setText(_translate("MainWindow", "(a+b)³"))
+        self.btn_formula5.setText(_translate("MainWindow", "(a-b)³"))
+        self.btn_formula6.setText(_translate("MainWindow", "a³+b³"))
+
+    def add_functions(self, MainWindow):
+        self.btn_0.clicked.connect(lambda: self.write_number(self.btn_0.text()))
+        self.btn_1.clicked.connect(lambda: self.write_number(self.btn_1.text()))
+        self.btn_2.clicked.connect(lambda: self.write_number(self.btn_2.text()))
+        self.btn_3.clicked.connect(lambda: self.write_number(self.btn_3.text()))
+        self.btn_4.clicked.connect(lambda: self.write_number(self.btn_4.text()))
+        self.btn_5.clicked.connect(lambda: self.write_number(self.btn_5.text()))
+        self.btn_6.clicked.connect(lambda: self.write_number(self.btn_6.text()))
+        self.btn_7.clicked.connect(lambda: self.write_number(self.btn_7.text()))
+        self.btn_8.clicked.connect(lambda: self.write_number(self.btn_8.text()))
+        self.btn_9.clicked.connect(lambda: self.write_number(self.btn_9.text()))
+
+        self.btn_plus.clicked.connect(lambda: self.write_operator("+"))
+        self.btn_minus.clicked.connect(lambda: self.write_operator("-"))
+        self.btn_mult.clicked.connect(lambda: self.write_operator("*"))
+        self.btn_div.clicked.connect(lambda: self.write_operator("/"))
+        self.btn_interest.clicked.connect(lambda: self.write_operator("%"))
+        self.btn_pow.clicked.connect(lambda: self.write_operator("**"))
+
+        self.btn_dot.clicked.connect(lambda: self.write_dot(self.btn_dot.text()))
+        
+        self.btn_sqtr.clicked.connect(lambda: self.write_engineerings("math.sqrt("))
+        self.btn_abs.clicked.connect(lambda: self.write_engineerings("abs("))
+        self.btn_factorial.clicked.connect(lambda: self.write_engineerings("math.factorial("))
+        self.btn_logarithm.clicked.connect(lambda: self.write_engineerings("math.log10("))
+        self.btn_natural_logarithm.clicked.connect(lambda: self.write_engineerings("math.log("))
+        self.btn_pi.clicked.connect(lambda: self.write_engineerings("3.1415926536"))
+
+        self.btn_open_parenthesis.clicked.connect(self.write_open_parenthesis)
+        self.btn_closed_parenthesis.clicked.connect(self.write_close_parenthesis)
+
+        self.btn_equal.clicked.connect(self.results)
+
+        self.btn_full_delete.clicked.connect(self.full_delete)
+        self.btn_last_delete.clicked.connect(self.last_delete)
+
+        self.btn_engineering.clicked.connect(lambda: self.engineer_mode(MainWindow) if self.btn_abs.isVisible() else self.engineer_mode(MainWindow, True))
+        self.btn_math_formulas.clicked.connect(lambda: self.math_mode(MainWindow) if self.btn_formula1.isVisible() else self.math_mode(MainWindow, True))
+
+        self.btn_formula1.clicked.connect(lambda: self.write_formula("(a-b)(a+b)"))
+        self.btn_formula2.clicked.connect(lambda: self.write_formula("a²+2ab+b²"))
+        self.btn_formula3.clicked.connect(lambda: self.write_formula("a²-2ab+b²"))
+        self.btn_formula4.clicked.connect(lambda: self.write_formula("a³+3a²b+3ab²+b³"))
+        self.btn_formula5.clicked.connect(lambda: self.write_formula("a³-3a²b+3ab²-b³"))
+        self.btn_formula6.clicked.connect(lambda: self.write_formula("(a+b)(a²-ab+b²)"))
+
+        self.btn_made.clicked.connect(self.window_made)
+
+        self.engineer_mode(MainWindow)
+        self.math_mode(MainWindow)
+
+        MainWindow.setMinimumSize(250, 480)
+        MainWindow.setMaximumSize(250, 480)
+        MainWindow.resize(250, 480)
+
+    open = 0
+    expretion = ""
+
+    def write_number(self, number):
+        if self.field.text() == "0" or self.is_equal:
+            self.field.setText(number)
+            self.is_equal = False
+        else:
+            if self.field.text() == "":
+                self.field.setText(self.field.text() + number)
+            elif self.field.text()[-1] == ")":
+                self.field.setText(self.field.text() + "*" + number)
+            else:
+                self.field.setText(self.field.text() + number)
+
+    def write_open_parenthesis(self):
+        if "a" in self.field.text() and not "s" in self.field.text():
+            return
+        if not self.is_equal:
+            if self.field.text() == "":
+                self.field.setText(self.field.text() + "(")
+            elif self.field.text()[-1] in ("+", "-", "*", "/", "%", "("):
+                self.field.setText(self.field.text() + "(")
+            else:
+                self.field.setText(self.field.text() + "*(")
+            self.open += 1
+
+    def write_close_parenthesis(self):
+        if self.open > 0:
+            self.field.setText(self.field.text() + ")")
+            self.open -= 1
+
+    def write_operator(self, operator):
+        if "a" in self.field.text() and not "s" in self.field.text():
+            return
+        try:
+            if not self.is_equal:
+                if self.field.text()[-1] in ("+", "-", "*", "/", "%", "**"):
+                    new_operator = self.field.text()
+                    if new_operator[-2:] == "**":
+                        new_operator = new_operator[:-2] + operator
+                    else:
+                        if new_operator[-2:] != "(-":
+                            new_operator = new_operator[:-1] + operator
+                    self.field.setText(new_operator)
+                else:
+                    if self.field.text()[-1] != "(":
+                        self.field.setText(self.field.text() + operator)
+                    elif self.field.text()[-1] == "(" and operator == "-":
+                        self.field.setText(self.field.text() + "-")
+        except IndexError:
+            self.field_result.setText("Використано хибний формат.")
+
+    def write_dot(self, dot):
+        if "a" in self.field.text() and not "s" in self.field.text():
+            return
+        for i in self.field.text()[::-1]:
+            if i == ".":
+                return
+            elif i in ("+", "-", "*", "/", "%", "("):
+                break
+        try:
+            if not self.field.text()[-1] in ("+", "-", "*", "/", "%", "(", ")"):
+                self.field.setText(self.field.text() + dot)
+        except IndexError:
+            self.field_result.setText("Використано хибний формат.")
+
+    def write_engineerings(self, math):
+        if self.is_equal:
+            self.field.setText(math)
+            self.is_equal = False
+        else:
+            if self.field.text() == "" or self.field.text() == "0":
+                self.field.setText(math)
+            elif self.field.text()[-1] in ("+", "-", "*", "/", "%", "("):
+                self.field.setText(self.field.text() + math)
+            else:
+                self.field.setText(self.field.text() + "*" + math)
+            if math != "3.1415926536":
+                self.open += 1
+
+    def results(self):
+        try:
+            if self.open > 0:
+                self.field.setText(self.field.text() + ")" * self.open)
+            self.open = 0
+            res = eval(self.field.text())
+            self.field_result.setText("=" + str(res))
+            self.is_equal = True
+        except ZeroDivisionError:
+            self.field_result.setText("Не можна ділити на нуль.")
+        except:
+            self.field_result.setText("Використано хибний формат.")
+
+    def full_delete(self):
+        if self.field.text() != "0" and self.field_result.text() != "":
+            self.field.setText("0")
+            self.field_result.setText("")
+        elif self.field.text() != "0":
+            self.field.setText("0")
+        self.open = 0
+        self.is_equal = False
+
+    def last_delete(self):
+        for i in ["math.sqrt(", "abs(", "math.factorial(", "math.log10(", "math.log("]:
+            if self.field.text().endswith(i):
+                self.field.setText(self.field.text()[:-len(i)])
+                return
+        if self.field.text() in ["(a-b)(a+b)", "a²+2ab+b²", "a²-2ab+b²", "a³+3a²b+3ab²+b³", "a³-3a²b+3ab²-b³", "(a+b)(a²-ab+b²)"]:
+            self.full_delete()
+            return
+        try:
+            last_symbol = self.field.text()[-1]
+            self.field.setText(self.field.text()[:-1])
+            if last_symbol == ")":
+                self.open += 1
+            elif last_symbol == "(":
+                self.open -= 1
+        except IndexError:
+            self.field_result.setText("Поле пусте.")
+        self.is_equal = False
+
+    def engineer_mode(self, MainWindow, status = False):
+        if status:
+            MainWindow.setMaximumSize(MainWindow.width() + 60, 480)
+            MainWindow.resize(MainWindow.width() + 60, 480)
+            MainWindow.setMinimumSize(MainWindow.width(), 480)
+            if self.btn_formula1.isVisible():
+                MainWindow.setWindowTitle("Калькулятор інженерно-математичний")
+            else:
+                MainWindow.setWindowTitle("Калькулятор інженерний")
+            self.btn_made.resize(self.btn_made.width() + 60, 20)
+            self.btn_made.move(self.btn_made.geometry().x() - 60, self.btn_made.geometry().y())
+            for widget in MainWindow.findChildren(QtWidgets.QWidget):
+                if isinstance(widget, QtWidgets.QLabel):
+                    widget.move(widget.geometry().x() + 60, widget.geometry().y())
+            for widget in MainWindow.findChildren(QtWidgets.QWidget):
+                if isinstance(widget, QtWidgets.QPushButton):
+                    widget.move(widget.geometry().x() + 60, widget.geometry().y())
+        else:
+            if not self.btn_formula1.isVisible():
+                MainWindow.setMinimumSize(250, 480)
+                MainWindow.setWindowTitle("Калькулятор")
+            else:
+                MainWindow.setMinimumSize(250 + 110, 480)
+                MainWindow.setWindowTitle("Калькулятор математичний")
+            MainWindow.setMaximumSize(MainWindow.width() - 60, 480)
+            MainWindow.resize(MainWindow.width() - 60, 480)
+            MainWindow.setMinimumSize(MainWindow.width(), 480)
+            self.btn_made.resize(self.btn_made.width() - 60, 20)
+            self.btn_made.move(self.btn_made.geometry().x() + 60, self.btn_made.geometry().y())
+            for widget in MainWindow.findChildren(QtWidgets.QWidget):
+                if isinstance(widget, QtWidgets.QLabel):
+                    widget.move(widget.geometry().x() - 60, widget.geometry().y())
+            for widget in MainWindow.findChildren(QtWidgets.QWidget):
+                if isinstance(widget, QtWidgets.QPushButton):
+                    widget.move(widget.geometry().x() - 60, widget.geometry().y())
+
+        self.btn_abs.setVisible(status)
+        self.btn_factorial.setVisible(status)
+        self.btn_logarithm.setVisible(status)
+        self.btn_natural_logarithm.setVisible(status)
+        self.btn_pi.setVisible(status)
+        self.btn_interest.setVisible(status)
+
+    def math_mode(self, MainWindow, status = False):
+        if status:
+            MainWindow.setMaximumSize(MainWindow.width() + 110, 480)
+            MainWindow.resize(MainWindow.width() + 110, 480)
+            MainWindow.setMinimumSize(MainWindow.width(), 480)
+            if self.btn_abs.isVisible():
+                MainWindow.setWindowTitle("Калькулятор інженерно-математичний")
+            else:
+                MainWindow.setWindowTitle("Калькулятор математичний")
+            self.field.resize(self.field.width() + 110, 50)
+            self.field_result.resize(self.field_result.width() + 110, 30)
+            self.btn_made.resize(self.btn_made.width() + 110, 20)
+        else:
+            if not self.btn_abs.isVisible():
+                MainWindow.setMinimumSize(250, 480)
+                MainWindow.setWindowTitle("Калькулятор")
+            else:
+                MainWindow.setMinimumSize(250 + 60, 480)
+                MainWindow.setWindowTitle("Калькулятор інженерний")
+            MainWindow.setMaximumSize(MainWindow.width() - 110, 480)
+            MainWindow.resize(MainWindow.width() - 110, 480)
+            self.field.resize(self.field.width() - 110, 50)
+            self.field_result.resize(self.field_result.width() - 110, 30)
+            self.btn_made.resize(self.btn_made.width() - 110, 20)
+            
+
+        self.btn_formula1.setVisible(status)
+        self.btn_formula2.setVisible(status)
+        self.btn_formula3.setVisible(status)
+        self.btn_formula4.setVisible(status)
+        self.btn_formula5.setVisible(status)
+        self.btn_formula6.setVisible(status)
+
+    def write_formula(self, formula):
+        self.field.setText(formula)
+        self.is_equal = True
+    
+    def window_made(self):
+        made = QMessageBox()
+        made.setWindowTitle("Інформація")
+        made.setText("Якусевич Владислав Олександрович\n" +
+                     "Email: vladyakusevich@gmail.com")
+        made.setIcon(QMessageBox.Information)
+        made.exec_()
+
+app = QtWidgets.QApplication(sys.argv)
+MainWindow = QtWidgets.QMainWindow()
+ui = Ui_MainWindow()
+ui.setupUi(MainWindow)
+MainWindow.show()
+sys.exit(app.exec())
